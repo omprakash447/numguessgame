@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second page</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .main {
+        height: 750px;
+        width: 700px;
+        font-size: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 900;
+        padding: 50px 50px 50px 50px;
+        background: transparent;
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        color: white;
+        text-shadow: 0px 0px 10px white;
+    }
+    
+    body {
+        background-image: url(https://wallpapercave.com/wp/wp2757951.gif);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    p {
+        font-weight: 500;
+    }
+    
+    .inputs #textinpt {
+        height: 50px;
+        width: 150px;
+        border-radius: 20px;
+        font-size: 16px;
+        text-align: center;
+        font-family: cursive;
+        font-weight: 900;
+    }
+    
+    #btn2 {
+        height: 45px;
+        width: 130px;
+        font-size: 20px;
+        font-family: cursive;
+        font-weight: 900;
+        border-radius: 20px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    
+    .inputs {
+        padding: 50px;
+    }
+    
+    #answer {
+        text-align: left;
+        margin-top: 50px;
+    }
+    
+    .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Hii ! lets start our winderful game.</h1>
+            <p>Rule is You have to choose a number between 1-100 , which i have alredy guessd it.</p>
+            <p>u have to enter only the correct number that i have guessed.</p>
+            <p>If u gave the correct answer then there is a surprise for u.</p>
+            <div class="inputs">
+                Enter your number : <input type="number" name="" id="textinpt" placeholder="Enter ur number">
+                <br>
+                <button id="btn2">Submit</button>
+                <h2 id="answer"></h2>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    const randomnumber = (Math.floor(Math.random() * 100) + 1);
+    const btn = document.getElementById("btn2");
+    const answer = document.getElementById("answer");
+
+    btn.addEventListener("click", function() {
+        const input = document.getElementById("textinpt").value
+        if (input == randomnumber) {
+            answer.textContent = "Wow u guessed it"
+            answer.style.color = "green"
+            answer.style.textShadow = "6px 4px 10px black"
+        } else if (input < randomnumber) {
+            answer.textContent = "U chooswd a lesser one"
+            answer.style.color = "red"
+        } else {
+            answer.textContent = "u choosed greater one"
+            answer.style.color = "red"
+        }
+    })
+</script>
+
+</html>
