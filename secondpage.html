@@ -11,10 +11,11 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        text-decoration: none;
     }
     
     .main {
-        height: 750px;
+        height: 850px;
         width: 700px;
         font-size: 20px;
         font-family: 'Courier New', Courier, monospace;
@@ -65,6 +66,7 @@
     #answer {
         text-align: left;
         margin-top: 50px;
+        margin-left: 40px
     }
     
     .container {
@@ -77,12 +79,27 @@
         margin-top: 100px;
         padding: 20px;
     }
+    
+    #contn button {
+        height: 50px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 20px;
+        font-family: cursive;
+        font-weight: 900;
+        margin-top: 30px;
+        margin-left: 37px;
+        border-radius: 30px;
+    }
 </style>
 
 <body>
     <div class="container">
         <div class="main">
-            <h1>Hii ! lets start our winderful game.</h1>
+            <h1>Hii ! lets start our wonderful game.</h1>
             <p>Rule is You have to choose a number between 1-100 , which i have alredy guessd it.</p>
             <p>u have to enter only the correct number that i have guessed.</p>
             <p>If u gave the correct answer then there is a surprise for u.</p>
@@ -91,6 +108,7 @@
                 <br>
                 <button id="btn2">Submit</button>
                 <h2 id="answer"></h2>
+                <a href="thirdpage.html" id="contn"></a>
             </div>
 
         </div>
@@ -100,6 +118,7 @@
     const randomnumber = (Math.floor(Math.random() * 100) + 1);
     const btn = document.getElementById("btn2");
     const answer = document.getElementById("answer");
+    let container = document.querySelector("#contn")
 
     btn.addEventListener("click", function() {
         const input = document.getElementById("textinpt").value
@@ -107,6 +126,10 @@
             answer.textContent = "Wow u guessed it"
             answer.style.color = "green"
             answer.style.textShadow = "6px 4px 10px black"
+            let btnsubmit = document.createElement("button");
+            let text = document.createTextNode("click here");
+            btnsubmit.appendChild(text)
+            container.appendChild(btnsubmit)
         } else if (input < randomnumber) {
             answer.textContent = "U chooswd a lesser one"
             answer.style.color = "red"
